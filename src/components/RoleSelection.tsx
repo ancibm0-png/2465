@@ -26,33 +26,33 @@ export default function RoleSelection({ onSelectRole, onBack }: RoleSelectionPro
           <p className="text-slate-300 text-lg">Select how you'd like to use Pocket Archive</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
           <button
             onClick={() => onSelectRole('user')}
-            className="group bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-slate-700 hover:border-blue-500 rounded-2xl p-8 transition-all transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 text-left"
+            className="group bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-slate-700 hover:border-blue-500 rounded-xl p-6 transition-all transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/20 text-left"
           >
-            <div className="mb-6 inline-flex p-4 bg-blue-500/10 rounded-xl group-hover:bg-blue-500/20 transition">
-              <Users className="w-12 h-12 text-blue-400" />
+            <div className="mb-4 inline-flex p-3 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 transition">
+              <Users className="w-8 h-8 text-blue-400" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-3">Reader</h3>
-            <p className="text-slate-400 mb-6 leading-relaxed">
-              Browse the collection, borrow books, track your reading list, and manage your library activity.
+            <h3 className="text-lg font-bold text-white mb-2">Reader</h3>
+            <p className="text-sm text-slate-400 mb-4 leading-relaxed">
+              Browse, borrow, and manage your reading list.
             </p>
-            <ul className="space-y-3 text-slate-300">
-              <li className="flex items-center space-x-3">
-                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                <span>Discover and search books</span>
+            <ul className="space-y-2 text-xs text-slate-300">
+              <li className="flex items-center space-x-2">
+                <span className="w-1 h-1 bg-blue-400 rounded-full"></span>
+                <span>Search books</span>
               </li>
-              <li className="flex items-center space-x-3">
-                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                <span>Borrow and reserve titles</span>
+              <li className="flex items-center space-x-2">
+                <span className="w-1 h-1 bg-blue-400 rounded-full"></span>
+                <span>Borrow titles</span>
               </li>
-              <li className="flex items-center space-x-3">
-                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                <span>Track due dates and history</span>
+              <li className="flex items-center space-x-2">
+                <span className="w-1 h-1 bg-blue-400 rounded-full"></span>
+                <span>Track activity</span>
               </li>
             </ul>
-            <div className="mt-8 text-blue-400 font-semibold flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition">
+            <div className="mt-4 text-blue-400 font-semibold flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition text-sm">
               <span>Start Reading</span>
               <span>→</span>
             </div>
@@ -60,30 +60,30 @@ export default function RoleSelection({ onSelectRole, onBack }: RoleSelectionPro
 
           <button
             onClick={() => onSelectRole('librarian')}
-            className="group bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-slate-700 hover:border-emerald-500 rounded-2xl p-8 transition-all transform hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/20 text-left"
+            className="group bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-slate-700 hover:border-emerald-500 rounded-xl p-6 transition-all transform hover:scale-105 hover:shadow-xl hover:shadow-emerald-500/20 text-left"
           >
-            <div className="mb-6 inline-flex p-4 bg-emerald-500/10 rounded-xl group-hover:bg-emerald-500/20 transition">
-              <BookOpen className="w-12 h-12 text-emerald-400" />
+            <div className="mb-4 inline-flex p-3 bg-emerald-500/10 rounded-lg group-hover:bg-emerald-500/20 transition">
+              <BookOpen className="w-8 h-8 text-emerald-400" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-3">Librarian</h3>
-            <p className="text-slate-400 mb-6 leading-relaxed">
-              Manage the library collection, process borrows and returns, and oversee all library operations.
+            <h3 className="text-lg font-bold text-white mb-2">Librarian</h3>
+            <p className="text-sm text-slate-400 mb-4 leading-relaxed">
+              Manage collection and library operations.
             </p>
-            <ul className="space-y-3 text-slate-300">
-              <li className="flex items-center space-x-3">
-                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-                <span>Add and update inventory</span>
+            <ul className="space-y-2 text-xs text-slate-300">
+              <li className="flex items-center space-x-2">
+                <span className="w-1 h-1 bg-emerald-400 rounded-full"></span>
+                <span>Update inventory</span>
               </li>
-              <li className="flex items-center space-x-3">
-                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-                <span>Process borrows and returns</span>
+              <li className="flex items-center space-x-2">
+                <span className="w-1 h-1 bg-emerald-400 rounded-full"></span>
+                <span>Process borrows</span>
               </li>
-              <li className="flex items-center space-x-3">
-                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-                <span>Monitor library statistics</span>
+              <li className="flex items-center space-x-2">
+                <span className="w-1 h-1 bg-emerald-400 rounded-full"></span>
+                <span>View statistics</span>
               </li>
             </ul>
-            <div className="mt-8 text-emerald-400 font-semibold flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition">
+            <div className="mt-4 text-emerald-400 font-semibold flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition text-sm">
               <span>Start Managing</span>
               <span>→</span>
             </div>
