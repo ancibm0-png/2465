@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { BookOpen, Home, Library, LogOut, LayoutDashboard } from 'lucide-react';
+import { Archive, Home, Library, LogOut, LayoutDashboard } from 'lucide-react';
 import LandingPage from './components/LandingPage';
-import Auth from './components/Auth';
+import RoleSelection from './components/RoleSelection';
 import BookDiscover from './components/BookDiscover';
 import BookDetails from './components/BookDetails';
 import MyLibrary from './components/MyLibrary';
@@ -9,7 +9,7 @@ import LibrarianDashboard from './components/LibrarianDashboard';
 import { User, Book } from './types';
 import { getCurrentUser, setCurrentUser as saveCurrentUser, initializeStorage } from './utils/localStorage';
 
-type View = 'landing' | 'auth' | 'discover' | 'my-library' | 'librarian';
+type View = 'landing' | 'role-selection' | 'discover' | 'my-library' | 'librarian';
 
 function App() {
   const [currentView, setCurrentView] = useState<View>('landing');
@@ -26,9 +26,16 @@ function App() {
     }
   }, []);
 
-  const handleAuthSuccess = (user: User) => {
-    setCurrentUser(user);
-    setCurrentView(user.role === 'librarian' ? 'librarian' : 'discover');
+  const handleRoleSelect = (role: 'user' | 'librarian') => {
+    const newUser: User = {
+      id: Date.now().toString(),
+      name: role === 'librarian' ? 'Librarian' : 'Reader',
+      email: `${role}@pocketarchive.local`,
+      role: role,
+    };
+    setCurrentUser(newUser);
+    saveCurrentUser(newUser);
+    setCurrentView(role === 'librarian' ? 'librarian' : 'discover');
   };
 
   const handleLogout = () => {
@@ -42,15 +49,15 @@ function App() {
   };
 
   if (currentView === 'landing') {
-    return <LandingPage onGetStarted={() => setCurrentView('auth')} />;
+    return <LandingPage onGetStarted={() => setCurrentView('role-selection')} />;
   }
 
-  if (currentView === 'auth') {
-    return <Auth onAuthSuccess={handleAuthSuccess} onBack={() => setCurrentView('landing')} />;
+  if (currentView === 'role-selection') {
+    return <RoleSelection onSelectRole={handleRoleSelect} onBack={() => setCurrentView('landing')} />;
   }
 
   if (!currentUser) {
-    return <LandingPage onGetStarted={() => setCurrentView('auth')} />;
+    return <LandingPage onGetStarted={() => setCurrentView('role-selection')} />;
   }
 
   return (
@@ -59,8 +66,8 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-2">
-              <BookOpen className="w-8 h-8 text-amber-600" />
-              <span className="text-2xl font-bold text-amber-900">LocalLibrary</span>
+              <Archive className="w-8 h-8 text-amber-600" />
+              <span className="text-2xl font-bold text-amber-900">Pocket Archive</span>
             </div>
 
             <div className="flex items-center space-x-1">
